@@ -197,7 +197,7 @@ function LeadTableView({
           </TableHeader>
           <TableBody>
             {data.map((row) => (
-              <TableRow key={String(row.id)}>
+              <TableRow key={String(row["id"])}>
                 {columns.map((c) => (
                   <TableCell key={c} className="max-w-[240px] align-top text-sm">
                     {formatCell(c, row[c])}
@@ -205,10 +205,10 @@ function LeadTableView({
                 ))}
                 <TableCell className="align-top">
                   <div className="flex items-center gap-2">
-                    <Badge variant="secondary">{String(row.status ?? "new")}</Badge>
+                    <Badge variant="secondary">{String(row["status"] ?? "new")}</Badge>
                     <Select
-                      value={String(row.status ?? "new")}
-                      onValueChange={(value) => updateStatus(String(row.id), value)}
+                      value={String(row["status"] ?? "new")}
+                      onValueChange={(value) => updateStatus(String(row["id"]), value)}
                     >
                       <SelectTrigger className="w-[140px]">
                         <SelectValue />
