@@ -4,7 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 import { PageHero, Section } from "@/components/site/Section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { PROGRAMS } from "@/data/kitc";
+import { PROGRAMS, type Program } from "@/data/kitc";
 
 export const Route = createFileRoute("/programs/$slug")({
   loader: ({ params }) => {
@@ -42,7 +42,7 @@ function ProgramNotFound() {
 }
 
 function ProgramDetail() {
-  const { program } = Route.useLoaderData();
+  const { program } = Route.useLoaderData() as { program: Program };
 
   return (
     <>
