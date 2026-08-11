@@ -11,7 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DonateRouteImport } from './routes/donate'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as HireRouteImport } from './routes/hire'
+import { Route as RegisterRouteImport } from './routes/register'
 import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
 import { Route as YouthEmpowermentRouteImport } from './routes/youth-empowerment'
 import { Route as ProgramsIndexRouteImport } from './routes/programs.index'
@@ -27,9 +31,29 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DonateRoute = DonateRouteImport.update({
+  id: '/donate',
+  path: '/donate',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HireRoute = HireRouteImport.update({
+  id: '/hire',
+  path: '/hire',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
@@ -56,7 +80,11 @@ const ProgramsSlugRoute = ProgramsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
   '/gallery': typeof GalleryRoute
+  '/hire': typeof HireRoute
+  '/register': typeof RegisterRoute
   '/success-stories': typeof SuccessStoriesRoute
   '/youth-empowerment': typeof YouthEmpowermentRoute
   '/programs/$slug': typeof ProgramsSlugRoute
@@ -65,7 +93,11 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
   '/gallery': typeof GalleryRoute
+  '/hire': typeof HireRoute
+  '/register': typeof RegisterRoute
   '/success-stories': typeof SuccessStoriesRoute
   '/youth-empowerment': typeof YouthEmpowermentRoute
   '/programs/$slug': typeof ProgramsSlugRoute
@@ -75,7 +107,11 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/donate': typeof DonateRoute
   '/gallery': typeof GalleryRoute
+  '/hire': typeof HireRoute
+  '/register': typeof RegisterRoute
   '/success-stories': typeof SuccessStoriesRoute
   '/youth-empowerment': typeof YouthEmpowermentRoute
   '/programs/$slug': typeof ProgramsSlugRoute
@@ -86,7 +122,11 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/contact'
+    | '/donate'
     | '/gallery'
+    | '/hire'
+    | '/register'
     | '/success-stories'
     | '/youth-empowerment'
     | '/programs/$slug'
@@ -95,7 +135,11 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/contact'
+    | '/donate'
     | '/gallery'
+    | '/hire'
+    | '/register'
     | '/success-stories'
     | '/youth-empowerment'
     | '/programs/$slug'
@@ -104,7 +148,11 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/contact'
+    | '/donate'
     | '/gallery'
+    | '/hire'
+    | '/register'
     | '/success-stories'
     | '/youth-empowerment'
     | '/programs/$slug'
@@ -114,7 +162,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  DonateRoute: typeof DonateRoute
   GalleryRoute: typeof GalleryRoute
+  HireRoute: typeof HireRoute
+  RegisterRoute: typeof RegisterRoute
   SuccessStoriesRoute: typeof SuccessStoriesRoute
   YouthEmpowermentRoute: typeof YouthEmpowermentRoute
   ProgramsSlugRoute: typeof ProgramsSlugRoute
@@ -137,11 +189,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donate': {
+      id: '/donate'
+      path: '/donate'
+      fullPath: '/donate'
+      preLoaderRoute: typeof DonateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/gallery': {
       id: '/gallery'
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hire': {
+      id: '/hire'
+      path: '/hire'
+      fullPath: '/hire'
+      preLoaderRoute: typeof HireRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/success-stories': {
@@ -178,7 +258,11 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  DonateRoute: DonateRoute,
   GalleryRoute: GalleryRoute,
+  HireRoute: HireRoute,
+  RegisterRoute: RegisterRoute,
   SuccessStoriesRoute: SuccessStoriesRoute,
   YouthEmpowermentRoute: YouthEmpowermentRoute,
   ProgramsSlugRoute: ProgramsSlugRoute,

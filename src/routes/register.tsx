@@ -169,7 +169,7 @@ function RegisterPage() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Programme</FormLabel>
-                            <Select onValueChange={field.onChange} value={field.value}>
+                            <Select onValueChange={field.onChange} value={field.value ?? ""}>
                               <FormControl>
                                 <SelectTrigger>
                                   <SelectValue placeholder="Choose a programme" />
@@ -193,7 +193,7 @@ function RegisterPage() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Preferred centre</FormLabel>
-                            <Select onValueChange={field.onChange} value={field.value}>
+                            <Select onValueChange={field.onChange} value={field.value ?? ""}>
                               <FormControl>
                                 <SelectTrigger>
                                   <SelectValue placeholder="Choose a centre" />
@@ -218,7 +218,7 @@ function RegisterPage() {
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel>Branch</FormLabel>
-                              <Select onValueChange={field.onChange} value={field.value}>
+                              <Select onValueChange={field.onChange} value={field.value ?? ""}>
                                 <FormControl>
                                   <SelectTrigger>
                                     <SelectValue placeholder="Choose your branch" />

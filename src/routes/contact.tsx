@@ -122,7 +122,7 @@ function ContactPage() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>Centre</FormLabel>
-                            <Select onValueChange={field.onChange} value={field.value}>
+                            <Select onValueChange={field.onChange} value={field.value ?? ""}>
                               <FormControl>
                                 <SelectTrigger>
                                   <SelectValue placeholder="Choose a centre" />

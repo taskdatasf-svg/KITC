@@ -166,7 +166,7 @@ function DonatePage() {
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel>What would you like to support?</FormLabel>
-                            <Select onValueChange={field.onChange} value={field.value}>
+                            <Select onValueChange={field.onChange} value={field.value ?? ""}>
                               <FormControl>
                                 <SelectTrigger>
                                   <SelectValue placeholder="Choose a purpose" />
