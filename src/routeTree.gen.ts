@@ -18,7 +18,6 @@ import { Route as DonateRouteImport } from './routes/donate'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as HireRouteImport } from './routes/hire'
 import { Route as RegisterRouteImport } from './routes/register'
-import { Route as SuccessStoriesRouteImport } from './routes/success-stories'
 import { Route as YouthEmpowermentRouteImport } from './routes/youth-empowerment'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as ProgramsIndexRouteImport } from './routes/programs.index'
@@ -68,11 +67,6 @@ const RegisterRoute = RegisterRouteImport.update({
   path: '/register',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SuccessStoriesRoute = SuccessStoriesRouteImport.update({
-  id: '/success-stories',
-  path: '/success-stories',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const YouthEmpowermentRoute = YouthEmpowermentRouteImport.update({
   id: '/youth-empowerment',
   path: '/youth-empowerment',
@@ -103,7 +97,6 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRoute
   '/hire': typeof HireRoute
   '/register': typeof RegisterRoute
-  '/success-stories': typeof SuccessStoriesRoute
   '/youth-empowerment': typeof YouthEmpowermentRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/programs/$slug': typeof ProgramsSlugRoute
@@ -118,7 +111,6 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRoute
   '/hire': typeof HireRoute
   '/register': typeof RegisterRoute
-  '/success-stories': typeof SuccessStoriesRoute
   '/youth-empowerment': typeof YouthEmpowermentRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/programs/$slug': typeof ProgramsSlugRoute
@@ -135,7 +127,6 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRoute
   '/hire': typeof HireRoute
   '/register': typeof RegisterRoute
-  '/success-stories': typeof SuccessStoriesRoute
   '/youth-empowerment': typeof YouthEmpowermentRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/programs/$slug': typeof ProgramsSlugRoute
@@ -152,7 +143,6 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/hire'
     | '/register'
-    | '/success-stories'
     | '/youth-empowerment'
     | '/admin'
     | '/programs/$slug'
@@ -167,7 +157,6 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/hire'
     | '/register'
-    | '/success-stories'
     | '/youth-empowerment'
     | '/admin'
     | '/programs/$slug'
@@ -183,7 +172,6 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/hire'
     | '/register'
-    | '/success-stories'
     | '/youth-empowerment'
     | '/_authenticated/admin'
     | '/programs/$slug'
@@ -200,7 +188,6 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRoute
   HireRoute: typeof HireRoute
   RegisterRoute: typeof RegisterRoute
-  SuccessStoriesRoute: typeof SuccessStoriesRoute
   YouthEmpowermentRoute: typeof YouthEmpowermentRoute
   ProgramsSlugRoute: typeof ProgramsSlugRoute
   ProgramsIndexRoute: typeof ProgramsIndexRoute
@@ -271,13 +258,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RegisterRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/success-stories': {
-      id: '/success-stories'
-      path: '/success-stories'
-      fullPath: '/success-stories'
-      preLoaderRoute: typeof SuccessStoriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/youth-empowerment': {
       id: '/youth-empowerment'
       path: '/youth-empowerment'
@@ -330,7 +310,6 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRoute,
   HireRoute: HireRoute,
   RegisterRoute: RegisterRoute,
-  SuccessStoriesRoute: SuccessStoriesRoute,
   YouthEmpowermentRoute: YouthEmpowermentRoute,
   ProgramsSlugRoute: ProgramsSlugRoute,
   ProgramsIndexRoute: ProgramsIndexRoute,

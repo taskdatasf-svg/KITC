@@ -6,15 +6,16 @@ import { KitcLogo } from "@/components/site/KitcLogo";
 
 export function Footer() {
   return (
-    <footer className="mt-20 border-t border-border bg-primary text-primary-foreground">
-      <div className="container-page grid gap-10 py-14 md:grid-cols-4">
-        <div className="md:col-span-2">
-          <div className="inline-block rounded-xl bg-white p-2.5 shadow-sm mb-4">
-            <KitcLogo imgClassName="h-10 w-auto" />
+    <footer className="mt-16 border-t border-border bg-primary text-primary-foreground">
+      <div className="container-page grid gap-8 py-10 md:grid-cols-4">
+        {/* Column 1: Logo & Info */}
+        <div className="flex flex-col items-start">
+          <div className="inline-block rounded-xl bg-white p-2 shadow-sm mb-3">
+            <KitcLogo imgClassName="h-8 w-auto" />
           </div>
-          <p className="text-sm font-medium opacity-90">{ORG.legalName}</p>
-          <p className="mt-4 max-w-sm text-sm opacity-90">{ORG.tagline}</p>
-          <dl className="mt-6 space-y-1 text-xs opacity-80">
+          <p className="text-xs font-semibold opacity-90 leading-tight">{ORG.legalName}</p>
+          <p className="mt-2 text-xs opacity-75 leading-relaxed max-w-[220px]">{ORG.tagline}</p>
+          <dl className="mt-4 space-y-1 text-[11px] opacity-70">
             <div className="flex gap-2">
               <dt>CIN</dt>
               <dd>{ORG.cin}</dd>
@@ -26,48 +27,55 @@ export function Footer() {
           </dl>
         </div>
 
+        {/* Column 2: Explore */}
         <div>
-          <h3 className="font-display text-sm font-semibold uppercase tracking-wide opacity-80">Explore</h3>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li><Link to="/programs" className="opacity-90 hover:opacity-100">Programmes</Link></li>
-            <li><Link to="/youth-empowerment" className="opacity-90 hover:opacity-100">Youth Empowerment</Link></li>
-            <li><Link to="/success-stories" className="opacity-90 hover:opacity-100">Success Stories</Link></li>
-            <li><Link to="/gallery" className="opacity-90 hover:opacity-100">Gallery</Link></li>
-            <li><Link to="/register" className="opacity-90 hover:opacity-100">Candidate Registration</Link></li>
-            <li><Link to="/donate" className="opacity-90 hover:opacity-100">Donate / CSR</Link></li>
-            <li><Link to="/hire" className="opacity-90 hover:opacity-100">Hire From Us</Link></li>
+          <h3 className="font-display text-xs font-bold uppercase tracking-wider opacity-85">Explore</h3>
+          <ul className="mt-3 space-y-1.5 text-xs">
+            <li><Link to="/programs" className="opacity-80 hover:opacity-100 hover:underline">Programmes</Link></li>
+            <li><Link to="/youth-empowerment" className="opacity-80 hover:opacity-100 hover:underline">Youth Empowerment</Link></li>
+            <li><Link to="/gallery" className="opacity-80 hover:opacity-100 hover:underline">Gallery</Link></li>
+            <li><Link to="/register" className="opacity-80 hover:opacity-100 hover:underline">Candidate Registration</Link></li>
+            <li><Link to="/donate" className="opacity-80 hover:opacity-100 hover:underline">Donate / CSR</Link></li>
+            <li><Link to="/hire" className="opacity-80 hover:opacity-100 hover:underline">Hire From Us</Link></li>
           </ul>
         </div>
 
+        {/* Column 3: Our Centres */}
         <div>
-          <h3 className="font-display text-sm font-semibold uppercase tracking-wide opacity-80">Our centres</h3>
-          <ul className="mt-4 space-y-3 text-sm">
+          <h3 className="font-display text-xs font-bold uppercase tracking-wider opacity-85">Our centres</h3>
+          <ul className="mt-3 space-y-3 text-xs">
             {CENTERS.map((c) => (
-              <li key={c.id} className="flex gap-2 opacity-90">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
+              <li key={c.id} className="flex gap-2 opacity-80">
+                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent" />
                 <span>
-                  <strong className="block font-medium">{c.name}</strong>
-                  {c.address}
+                  <strong className="block font-semibold text-white">{c.name}</strong>
+                  <span className="text-[11px] leading-tight block mt-0.5">{c.address}</span>
                 </span>
               </li>
             ))}
           </ul>
-          <div className="mt-4 space-y-2 text-sm">
-            <a href={`tel:${ORG.phone.replace(/\s/g, "")}`} className="flex items-center gap-2 opacity-90 hover:opacity-100">
-              <Phone className="h-4 w-4" /> {ORG.phone}
+        </div>
+
+        {/* Column 4: Contact & Socials */}
+        <div>
+          <h3 className="font-display text-xs font-bold uppercase tracking-wider opacity-85">Contact us</h3>
+          <div className="mt-3 space-y-2.5 text-xs">
+            <a href={`tel:${ORG.phone.replace(/\s/g, "")}`} className="flex items-center gap-2 opacity-80 hover:opacity-100 hover:underline">
+              <Phone className="h-3.5 w-3.5 text-accent" /> {ORG.phone}
             </a>
-            <a href={`mailto:${ORG.email}`} className="flex items-center gap-2 opacity-90 hover:opacity-100">
-              <Mail className="h-4 w-4" /> {ORG.email}
+            <a href={`mailto:${ORG.email}`} className="flex items-center gap-2 opacity-80 hover:opacity-100 hover:underline">
+              <Mail className="h-3.5 w-3.5 text-accent" /> {ORG.email}
             </a>
-            <a href={ORG.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-2 opacity-90 hover:opacity-100">
-              <Instagram className="h-4 w-4" /> Instagram
+            <a href={ORG.instagram} target="_blank" rel="noreferrer" className="flex items-center gap-2 opacity-80 hover:opacity-100 hover:underline">
+              <Instagram className="h-3.5 w-3.5 text-accent" /> Instagram
             </a>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-primary-foreground/15">
-        <div className="container-page flex flex-col gap-2 py-5 text-xs opacity-75 sm:flex-row sm:items-center sm:justify-between">
+      {/* Copyright Bar */}
+      <div className="border-t border-primary-foreground/10 bg-primary/40">
+        <div className="container-page flex flex-col gap-2 py-4 text-[11px] opacity-70 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright © {new Date().getFullYear()} {ORG.legalName}. All rights reserved.</p>
           <p>{ORG.entityType}</p>
         </div>

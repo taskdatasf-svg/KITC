@@ -11,7 +11,6 @@ const NAV = [
   { to: "/", label: "Home" },
   { to: "/programs", label: "Our Programs" },
   { to: "/youth-empowerment", label: "Youth Empowerment" },
-  { to: "/success-stories", label: "Success Stories" },
   { to: "/gallery", label: "Gallery" },
   { to: "/about", label: "About Us" },
   { to: "/hire", label: "Hire From Us" },

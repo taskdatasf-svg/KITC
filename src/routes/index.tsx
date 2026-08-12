@@ -220,11 +220,6 @@ function HomePage() {
                 </blockquote>
               ))}
             </div>
-            <Button asChild variant="link" className="mt-2 px-0">
-              <Link to="/success-stories">
-                Read more stories <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </Button>
           </div>
         </div>
       </Section>
