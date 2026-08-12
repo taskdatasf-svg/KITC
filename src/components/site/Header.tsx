@@ -4,16 +4,18 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { KitcLogo } from "@/components/site/KitcLogo";
 import { ORG } from "@/data/kitc";
 
 const NAV = [
-  { to: "/programs", label: "Programmes" },
+  { to: "/", label: "Home" },
+  { to: "/programs", label: "Our Programs" },
   { to: "/youth-empowerment", label: "Youth Empowerment" },
   { to: "/success-stories", label: "Success Stories" },
   { to: "/gallery", label: "Gallery" },
-  { to: "/about", label: "About" },
+  { to: "/about", label: "About Us" },
   { to: "/hire", label: "Hire From Us" },
-  { to: "/contact", label: "Contact" },
+  { to: "/contact", label: "Contact us" },
 ] as const;
 
 export function Header() {
@@ -22,23 +24,16 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur">
       <div className="container-page flex h-16 items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-2">
-          <span className="grid h-9 w-9 place-items-center rounded-md bg-primary font-display text-sm font-bold text-primary-foreground">
-            KI
-          </span>
-          <span className="leading-tight">
-            <span className="block font-display text-base font-bold">KITC</span>
-            <span className="block text-[11px] text-muted-foreground">Industrial Training Center</span>
-          </span>
-        </Link>
+        <KitcLogo />
 
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV.map((item) => (
             <Link
               key={item.to}
               to={item.to}
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-              activeProps={{ className: "text-foreground bg-secondary" }}
+              activeOptions={{ exact: item.to === "/" }}
+              className="rounded-md px-2.5 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+              activeProps={{ className: "text-foreground bg-secondary font-semibold" }}
             >
               {item.label}
             </Link>
@@ -66,6 +61,7 @@ export function Header() {
                   <Link
                     key={item.to}
                     to={item.to}
+                    activeOptions={{ exact: item.to === "/" }}
                     onClick={() => setOpen(false)}
                     className="rounded-md px-3 py-3 text-base font-medium hover:bg-secondary"
                   >

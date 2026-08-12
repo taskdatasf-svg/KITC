@@ -2,14 +2,17 @@ import { Link } from "@tanstack/react-router";
 import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 
 import { CENTERS, ORG } from "@/data/kitc";
+import { KitcLogo } from "@/components/site/KitcLogo";
 
 export function Footer() {
   return (
     <footer className="mt-20 border-t border-border bg-primary text-primary-foreground">
       <div className="container-page grid gap-10 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
-          <h2 className="font-display text-xl font-bold">{ORG.shortName}</h2>
-          <p className="mt-1 text-sm opacity-80">{ORG.legalName}</p>
+          <div className="inline-block rounded-xl bg-white p-2.5 shadow-sm mb-4">
+            <KitcLogo imgClassName="h-10 w-auto" />
+          </div>
+          <p className="text-sm font-medium opacity-90">{ORG.legalName}</p>
           <p className="mt-4 max-w-sm text-sm opacity-90">{ORG.tagline}</p>
           <dl className="mt-6 space-y-1 text-xs opacity-80">
             <div className="flex gap-2">

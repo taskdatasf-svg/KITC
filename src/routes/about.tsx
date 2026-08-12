@@ -10,13 +10,13 @@ import { CENTERS, ORG } from "@/data/kitc";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About KITC — Kakatiya Industrial Training Center" },
+      { title: "About KITC — Kakatheeya Industrial Training Centre" },
       {
         name: "description",
         content:
-          "Kakatiya Industrial Training Center and Association is a Telangana-registered non-profit (CIN U88900TS2023NPL176600) delivering free skilling and employment support.",
+          "Kakatheeya Industrial Training Centre and Association is a Telangana-registered non-profit (CIN U88900TS2023NPL176600) delivering free skilling and employment support.",
       },
-      { property: "og:title", content: "About KITC — Kakatiya Industrial Training Center" },
+      { property: "og:title", content: "About KITC — Kakatheeya Industrial Training Centre" },
       {
         property: "og:description",
         content: "A registered Telangana non-profit delivering free vocational skilling and placement support.",

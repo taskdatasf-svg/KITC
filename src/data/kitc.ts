@@ -1,6 +1,6 @@
 export const ORG = {
   shortName: "KITC",
-  legalName: "Kakatiya Industrial Training Center and Association",
+  legalName: "Kakatheeya Industrial Training Centre and Association",
   tagline: "Be Focused. Be Determined. Be Empowered.",
   cin: "U88900TS2023NPL176600",
   registered: "30 August 2023",
