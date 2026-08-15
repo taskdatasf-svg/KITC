@@ -77,7 +77,10 @@ export function Footer() {
       <div className="border-t border-primary-foreground/10 bg-primary/40">
         <div className="container-page flex flex-col gap-2 py-4 text-[11px] opacity-70 sm:flex-row sm:items-center sm:justify-between">
           <p>Copyright © {new Date().getFullYear()} {ORG.legalName}. All rights reserved.</p>
-          <p>{ORG.entityType}</p>
+          <div className="flex flex-col sm:items-end gap-1">
+            <p>{ORG.entityType}</p>
+            <p>Designed and maintained by <strong className="font-semibold text-white opacity-90">Student Forge</strong></p>
+          </div>
         </div>
       </div>
     </footer>

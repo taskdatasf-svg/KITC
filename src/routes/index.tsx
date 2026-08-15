@@ -1,10 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState, useRef } from "react";
 import { ArrowRight, BadgeCheck, Building2, GraduationCap, HeartHandshake, MapPin } from "lucide-react";
 
 import heroImage from "@/assets/hero-training.jpg";
 import workshopImage from "@/assets/workshop.jpg";
 import placementImage from "@/assets/placement.jpg";
 import { Section } from "@/components/site/Section";
+import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CENTERS, IMPACT, ORG, PARTNER_NOTE, PROGRAMS, STORIES } from "@/data/kitc";
@@ -35,36 +37,102 @@ function HomePage() {
 
   return (
     <>
-      <section className="surface-hero">
-        <div className="container-page grid items-center gap-10 py-14 md:grid-cols-2 md:py-20">
-          <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent">Welcome to KITC</p>
-            <h1 className="text-4xl font-extrabold leading-[1.05] md:text-6xl">{ORG.tagline}</h1>
-            <p className="mt-5 max-w-lg text-base opacity-90 md:text-lg">
+      <section className="relative overflow-hidden bg-[#f7f8f9] pt-4 pb-10 md:pt-6 md:pb-16">
+        {/* Background Decorative Elements */}
+        <div className="absolute -left-12 top-4 md:-left-4 md:-top-4 text-[#0eb39e] opacity-50 animate-float z-0 pointer-events-none">
+          <svg width="120" height="160" viewBox="0 0 120 160">
+            <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+              <circle cx="3" cy="3" r="3" fill="currentColor" />
+            </pattern>
+            <rect x="0" y="0" width="120" height="160" fill="url(#dots)" />
+          </svg>
+        </div>
+        
+        <div className="absolute top-10 right-[35%] md:right-[45%] text-[#0eb39e] opacity-70 hidden md:block animate-float-horizontal z-0 pointer-events-none">
+          <svg width="100" height="50" viewBox="0 0 100 50">
+            <path d="M0,15 L20,35 L40,15 L60,35 L80,15 L100,35" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
+            <path d="M0,25 L20,45 L40,25 L60,45 L80,25 L100,45" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
+            <path d="M0,5 L20,25 L40,5 L60,25 L80,5 L100,25" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
+          </svg>
+        </div>
+        
+        {/* Curved Background Shape overlay */}
+        <div className="absolute -right-20 top-0 h-full w-[60%] rounded-l-full bg-white opacity-40"></div>
+
+        <div className="container-page relative z-10 grid items-center gap-8 md:grid-cols-2">
+          {/* Left Content */}
+          <div className="max-w-xl xl:pr-10">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#0eb39e]">Welcome to KITC</p>
+            <h1 className="font-display text-4xl font-extrabold leading-tight text-[#1a1a1a] md:text-5xl lg:text-[3.5rem]">
+              <span className="block">Be Focused.</span>
+              <span className="block">Be Determined.</span>
+              <span className="block">Be Empowered.</span>
+            </h1>
+            <p className="mt-6 text-lg text-slate-700 font-medium">
               Free vocational training, industrial training for diploma and engineering students, and real job
               placement support for young people across Hyderabad.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg">
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button asChild size="lg" className="group rounded bg-[#f97316] px-8 py-6 text-base font-medium text-white shadow-md transition-all hover:-translate-y-1 hover:bg-orange-600 hover:shadow-xl">
                 <Link to="/register">
-                  Apply for a course <ArrowRight className="ml-1 h-4 w-4" />
+                  Apply for a course <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="secondary">
+              <Button asChild size="lg" variant="outline" className="rounded bg-white px-8 py-6 text-base font-medium text-slate-800 shadow-sm border-2 border-slate-200 transition-all hover:-translate-y-1 hover:border-slate-300 hover:shadow-md hover:bg-slate-50">
                 <Link to="/donate">Support us (CSR)</Link>
               </Button>
             </div>
-            <p className="mt-6 text-xs opacity-75">
+            <p className="mt-6 text-xs font-medium opacity-60 text-slate-600">
               {ORG.legalName} · CIN {ORG.cin}
             </p>
           </div>
-          <img
-            src={heroImage}
-            alt="Students learning computer basics at a KITC training centre in Hyderabad"
-            width={1600}
-            height={1008}
-            className="rounded-xl shadow-lift"
-          />
+
+          {/* Right Content / Image with Floating Card */}
+          <div className="relative mx-auto w-full max-w-[420px] group/hero">
+            {/* Red Dashed Circle Decorative */}
+            <div className="absolute -right-12 top-20 h-48 w-48 rounded-full border-[8px] border-dashed border-[#ff4757] opacity-80 z-0 transition-transform duration-700 group-hover/hero:rotate-45"></div>
+            
+            {/* Pink Dots Decorative */}
+            <div className="absolute -left-20 top-1/3 text-[#ff7979] opacity-70 hidden md:block z-0 transition-transform duration-700 group-hover/hero:-translate-y-4 group-hover/hero:-translate-x-2">
+              <svg width="140" height="140" viewBox="0 0 140 140" className="animate-[pulse_4s_ease-in-out_infinite]">
+                <pattern id="pink-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <circle cx="3" cy="3" r="3" fill="currentColor" />
+                </pattern>
+                <circle cx="70" cy="70" r="70" fill="url(#pink-dots)" />
+              </svg>
+            </div>
+
+            {/* Main Image Container */}
+            <div className="relative z-10 pt-4">
+              {/* Yellow Dot Background Accent */}
+              <div className="absolute -left-12 bottom-32 h-12 w-12 rounded-full bg-[#fbc531] z-0 transition-all duration-700 group-hover/hero:-translate-y-6 group-hover/hero:scale-110"></div>
+
+              <img
+                src={heroImage}
+                alt="Smiling student holding books"
+                className="relative z-10 w-full object-cover rounded-xl shadow-lg transition-transform duration-700 group-hover/hero:scale-[1.02]"
+                style={{ height: '420px', objectPosition: 'top' }}
+              />
+              
+              {/* Floating Placement Card */}
+              <div className="absolute -bottom-6 -left-16 z-20 w-[300px] rounded-xl bg-white p-5 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.15)] hidden sm:block transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)]">
+                <h4 className="font-bold text-[#1a1a1a] text-[15px]">Placement Record</h4>
+                <div className="mt-4 flex items-center justify-between">
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div key={i} className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border-2 border-white bg-slate-100 shadow-sm transition-transform hover:scale-110 hover:z-10 cursor-pointer">
+                        <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 20}`} alt="Placed student" className="h-full w-full object-cover" />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="leading-tight text-right pr-2">
+                    <span className="block font-bold text-[#f97316] text-[15px]">1000+</span>
+                    <span className="text-xs text-slate-600 font-medium">Students Placed</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -72,7 +140,9 @@ function HomePage() {
         <div className="container-page grid grid-cols-2 gap-6 py-8 md:grid-cols-4">
           {IMPACT.map((stat) => (
             <div key={stat.label}>
-              <p className="font-display text-3xl font-extrabold text-primary md:text-4xl">{stat.value}</p>
+              <p className="font-display text-3xl font-extrabold text-primary md:text-4xl">
+                <AnimatedCounter value={stat.value} />
+              </p>
               <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
             </div>
           ))}
@@ -91,6 +161,8 @@ function HomePage() {
               body: "Free computer training and job placement assistance. Course duration 35 days.",
               to: "/register" as const,
               cta: "Enrol now",
+              bg: "bg-[#e9e3ff]",
+              textDark: "text-[#3b2c85]",
             },
             {
               icon: Building2,
@@ -98,6 +170,8 @@ function HomePage() {
               body: "Job-ready candidates with good communication skills, screened to your requirements.",
               to: "/hire" as const,
               cta: "Request candidates",
+              bg: "bg-[#cbfb6e]",
+              textDark: "text-[#3f570e]",
             },
             {
               icon: HeartHandshake,
@@ -105,22 +179,31 @@ function HomePage() {
               body: "Fund free education and social activity programmes for underprivileged youth.",
               to: "/donate" as const,
               cta: "Donate",
+              bg: "bg-[#9ce3fd]",
+              textDark: "text-[#0d5675]",
             },
           ].map((item) => (
-            <Card key={item.title} className="shadow-card">
-              <CardContent className="p-6">
-                <span className="mb-4 grid h-11 w-11 place-items-center rounded-lg bg-accent text-accent-foreground">
-                  <item.icon className="h-5 w-5" />
+            <div key={item.title} className={`relative flex flex-col justify-between overflow-hidden rounded-[2rem] p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group ${item.bg}`}>
+              
+              <div className="relative z-10">
+                <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-md transition-transform duration-300 group-hover:scale-110">
+                  <item.icon className="h-6 w-6" />
                 </span>
-                <h3 className="font-display text-lg font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{item.body}</p>
-                <Button asChild variant="link" className="mt-3 px-0">
-                  <Link to={item.to}>
-                    {item.cta} <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
+                <h3 className={`mt-8 font-display text-2xl font-bold leading-tight ${item.textDark}`}>{item.title}</h3>
+                <p className={`mt-4 text-[15px] leading-relaxed font-medium opacity-90 ${item.textDark}`}>
+                  {item.body}
+                </p>
+              </div>
+
+              <div className="relative z-10 mt-12 flex items-center">
+                <Link to={item.to} className={`inline-flex items-center text-sm font-bold transition-opacity hover:opacity-75 ${item.textDark}`}>
+                  {item.cta} <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+
+              {/* Decorative large icon in background */}
+              <item.icon className={`absolute -bottom-8 -right-8 h-48 w-48 opacity-[0.07] transition-transform duration-700 ease-out group-hover:scale-110 group-hover:-rotate-12 ${item.textDark}`} />
+            </div>
           ))}
         </div>
       </Section>
@@ -205,22 +288,16 @@ function HomePage() {
             className="rounded-xl shadow-card"
           />
           <div>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-lg leading-relaxed">
               We work with students from underprivileged backgrounds, combining vocational training with social
               transformation training so that they are equipped to get the right job and uplift their families.
             </p>
-            <p className="mt-4 text-muted-foreground">{PARTNER_NOTE}</p>
-            <div className="mt-6 grid gap-3">
-              {STORIES.slice(0, 2).map((s) => (
-                <blockquote key={s.name} className="rounded-lg border border-border bg-card p-4 shadow-card">
-                  <p className="text-sm">“{s.quote}”</p>
-                  <footer className="mt-2 text-xs text-muted-foreground">
-                    {s.name} — {s.role}
-                  </footer>
-                </blockquote>
-              ))}
-            </div>
+            <p className="mt-4 text-muted-foreground text-lg leading-relaxed">{PARTNER_NOTE}</p>
           </div>
+        </div>
+        
+        <div className="mt-20">
+          <TestimonialCarousel />
         </div>
       </Section>
 
@@ -228,22 +305,84 @@ function HomePage() {
         <Section title="Our offices in Hyderabad" description="Walk in to either centre, or message us before you visit.">
           <div className="grid gap-6 md:grid-cols-2">
             {CENTERS.map((c) => (
-              <Card key={c.id} className="shadow-card">
-                <CardContent className="flex gap-3 p-6">
-                  <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary" />
-                  <div>
-                    <h3 className="font-display text-lg font-bold">{c.name}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{c.address}</p>
-                    <Button asChild variant="link" className="mt-2 px-0">
-                      <Link to="/contact">Get directions</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+              <Link to="/contact" key={c.id} className="block group">
+                <Card className="h-full shadow-card transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1 group-hover:border-primary/20">
+                  <CardContent className="flex gap-3 p-6">
+                    <MapPin className="mt-1 h-5 w-5 shrink-0 text-primary transition-colors group-hover:text-blue-600" />
+                    <div>
+                      <h3 className="font-display text-lg font-bold transition-colors group-hover:text-blue-600">{c.name}</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">{c.address}</p>
+                      <span className="mt-4 inline-block text-sm font-medium text-primary underline-offset-4 group-hover:underline">
+                        Get directions
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </Section>
       </div>
     </>
   );
+}
+
+function AnimatedCounter({ value }: { value: string }) {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const elementRef = useRef<HTMLSpanElement>(null);
+  
+  const match = value.match(/^(\d+)(.*)$/);
+  const isNumeric = match !== null;
+  const target = isNumeric ? parseInt(match[1], 10) : 0;
+  const suffix = isNumeric ? match[2] : "";
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+    
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isNumeric || !isVisible) return;
+    
+    let startTimestamp: number | null = null;
+    const duration = 2000; // 2 seconds animation
+    
+    const step = (timestamp: number) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      
+      // easeOutQuart for smooth deceleration
+      const easeProgress = 1 - Math.pow(1 - progress, 4);
+      
+      setCount(Math.floor(easeProgress * target));
+      
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        setCount(target);
+      }
+    };
+    
+    requestAnimationFrame(step);
+  }, [target, isNumeric, isVisible]);
+
+  if (!isNumeric) {
+    return <span>{value}</span>;
+  }
+
+  return <span ref={elementRef}>{count}{suffix}</span>;
 }
