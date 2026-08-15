@@ -89,12 +89,12 @@ function YouthPage() {
           <div className="grid gap-6 md:grid-cols-2">
             {PILLARS.map((p) => (
               <Card key={p.title} className="shadow-card">
-                <CardContent className="p-6">
-                  <span className="mb-4 grid h-11 w-11 place-items-center rounded-lg bg-accent text-accent-foreground">
-                    <p.icon className="h-5 w-5" />
+                <CardContent className="p-4 sm:p-5">
+                  <span className="mb-3 grid h-9 w-9 place-items-center rounded-lg bg-accent text-accent-foreground">
+                    <p.icon className="h-4 w-4" />
                   </span>
-                  <h3 className="font-display text-lg font-bold">{p.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{p.body}</p>
+                  <h3 className="font-display text-base font-bold">{p.title}</h3>
+                  <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground">{p.body}</p>
                 </CardContent>
               </Card>
             ))}
@@ -103,17 +103,17 @@ function YouthPage() {
       </div>
 
       <Section>
-        <div className="rounded-xl bg-primary p-8 text-primary-foreground md:p-12">
-          <h2 className="font-display text-2xl font-bold md:text-3xl">Partner with us on youth empowerment</h2>
-          <p className="mt-3 max-w-2xl opacity-90">
+        <div className="rounded-xl bg-primary p-6 text-primary-foreground md:p-8">
+          <h2 className="font-display text-xl font-bold sm:text-2xl md:text-3xl">Partner with us on youth empowerment</h2>
+          <p className="mt-2.5 max-w-2xl text-xs sm:text-sm opacity-90 leading-relaxed">
             Companies and individuals fund batches, sponsor equipment and mentor trainees. Every contribution keeps the
             short course free for the students who need it most.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            <Button asChild size="lg" variant="secondary">
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-md">
               <Link to="/donate">Support a batch</Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" className="border-2 border-white/80 bg-transparent text-white hover:bg-white hover:text-primary font-semibold shadow-sm">
               <Link to="/hire">Hire our graduates</Link>
             </Button>
           </div>

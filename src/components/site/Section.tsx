@@ -13,13 +13,13 @@ export function PageHero({
 }) {
   return (
     <section className="surface-hero">
-      <div className="container-page py-6 md:py-8">
+      <div className="container-page py-4 sm:py-5 md:py-6">
         {eyebrow ? (
-          <p className="mb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent">{eyebrow}</p>
+          <p className="mb-0.5 text-[10px] font-semibold uppercase tracking-[0.16em] text-accent">{eyebrow}</p>
         ) : null}
-        <h1 className="max-w-2xl text-xl sm:text-2xl md:text-3xl font-bold leading-snug">{title}</h1>
-        {description ? <p className="mt-1.5 max-w-xl text-xs sm:text-sm opacity-90 leading-relaxed">{description}</p> : null}
-        {children ? <div className="mt-4">{children}</div> : null}
+        <h1 className="max-w-2xl text-lg sm:text-xl md:text-2xl font-bold leading-tight">{title}</h1>
+        {description ? <p className="mt-1 max-w-xl text-xs opacity-90 leading-normal">{description}</p> : null}
+        {children ? <div className="mt-3">{children}</div> : null}
       </div>
     </section>
   );

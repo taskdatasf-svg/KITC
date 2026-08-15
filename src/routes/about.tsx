@@ -94,12 +94,12 @@ function AboutPage() {
               },
             ].map((item) => (
               <Card key={item.title} className="shadow-card">
-                <CardContent className="p-6">
-                  <span className="mb-4 grid h-11 w-11 place-items-center rounded-lg bg-primary text-primary-foreground">
-                    <item.icon className="h-5 w-5" />
+                <CardContent className="p-4 sm:p-5">
+                  <span className="mb-3 grid h-9 w-9 place-items-center rounded-lg bg-primary text-primary-foreground">
+                    <item.icon className="h-4 w-4" />
                   </span>
-                  <h3 className="font-display text-lg font-bold">{item.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{item.body}</p>
+                  <h3 className="font-display text-base font-bold">{item.title}</h3>
+                  <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground">{item.body}</p>
                 </CardContent>
               </Card>
             ))}
