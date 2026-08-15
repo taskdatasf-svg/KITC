@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, useRef } from "react";
-import { ArrowRight, BadgeCheck, Building2, GraduationCap, HeartHandshake, MapPin } from "lucide-react";
+import { ArrowRight, BadgeCheck, Building2, GraduationCap, HeartHandshake, MapPin, Instagram } from "lucide-react";
 
 import heroImage from "@/assets/hero-training.jpg";
 import workshopImage from "@/assets/workshop.jpg";
@@ -126,7 +126,7 @@ function HomePage() {
                     ))}
                   </div>
                   <div className="leading-tight text-right pr-2">
-                    <span className="block font-bold text-[#f97316] text-[15px]">1000+</span>
+                    <span className="block font-bold text-[#f97316] text-[15px]">250+</span>
                     <span className="text-xs text-slate-600 font-medium">Students Placed</span>
                   </div>
                 </div>
@@ -137,9 +137,9 @@ function HomePage() {
       </section>
 
       <div className="border-y border-border bg-card">
-        <div className="container-page grid grid-cols-2 gap-6 py-8 md:grid-cols-4">
+        <div className="container-page flex flex-wrap justify-evenly items-center gap-8 py-8 text-center">
           {IMPACT.map((stat) => (
-            <div key={stat.label}>
+            <div key={stat.label} className="flex flex-col items-center">
               <p className="font-display text-3xl font-extrabold text-primary md:text-4xl">
                 <AnimatedCounter value={stat.value} />
               </p>
@@ -209,75 +209,83 @@ function HomePage() {
       </Section>
 
       <div className="bg-secondary/60">
-        <Section title="Our programmes" description="Two tracks, both built around getting a real job at the end.">
-          <div className="grid gap-6 lg:grid-cols-2">
-            <Card className="overflow-hidden shadow-card">
+        <Section title="Our programmes" description="Two tracks, both built around getting a real job at the end." className="max-w-6xl mx-auto px-4 md:px-8 !py-4 md:!py-6">
+          <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+            <Card className="flex h-full flex-col overflow-hidden shadow-card">
               <img
                 src={heroImage}
                 alt="Classroom session in progress"
                 loading="lazy"
                 width={1600}
                 height={1008}
-                className="h-48 w-full object-cover"
+                className="h-24 w-full object-cover sm:h-28"
               />
-              <CardContent className="p-6">
-                <p className="text-xs font-semibold uppercase tracking-wide text-brand-red">35 days · Free</p>
-                <h3 className="mt-2 font-display text-xl font-bold">{shortTerm[0]?.title}</h3>
-                <ul className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-muted-foreground">
-                  {["Tally", "GST", "Spoken English", "Computer basics", "Life skills", "Confidence building"].map(
-                    (c) => (
-                      <li key={c} className="flex items-center gap-2">
-                        <BadgeCheck className="h-4 w-4 text-primary" /> {c}
-                      </li>
-                    ),
-                  )}
-                </ul>
-                <Button asChild className="mt-6">
-                  <Link to="/programs/$slug" params={{ slug: shortTerm[0]?.slug ?? "" }}>
-                    View syllabus
-                  </Link>
-                </Button>
+              <CardContent className="flex flex-1 flex-col p-4 sm:p-5">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-red">35 days · Free</p>
+                  <h3 className="mt-2 font-display text-xl font-bold">{shortTerm[0]?.title}</h3>
+                  <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-muted-foreground">
+                    {["Tally", "GST", "Spoken English", "Computer basics", "Life skills", "Confidence building"].map(
+                      (c) => (
+                        <li key={c} className="flex items-center gap-2">
+                          <BadgeCheck className="h-4 w-4 text-primary" /> {c}
+                        </li>
+                      ),
+                    )}
+                  </ul>
+                </div>
+                <div className="mt-auto pt-4">
+                  <Button asChild>
+                    <Link to="/programs/$slug" params={{ slug: shortTerm[0]?.slug ?? "" }}>
+                      View syllabus
+                    </Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="overflow-hidden shadow-card">
+            <Card className="flex h-full flex-col overflow-hidden shadow-card">
               <img
                 src={workshopImage}
                 alt="Diploma students in an engineering practical lab"
                 loading="lazy"
                 width={1200}
                 height={900}
-                className="h-48 w-full object-cover"
+                className="h-24 w-full object-cover sm:h-28"
               />
-              <CardContent className="p-6">
-                <p className="text-xs font-semibold uppercase tracking-wide text-brand-red">6 months · Diploma / B.Tech</p>
-                <h3 className="mt-2 font-display text-xl font-bold">Industrial & practical training</h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Branch-wise training with academic project work support and internship guidance.
-                </p>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {industrial.map((p) => (
-                    <li key={p.slug}>
-                      <Link
-                        to="/programs/$slug"
-                        params={{ slug: p.slug }}
-                        className="inline-flex rounded-full border border-border bg-background px-3 py-1 text-xs font-medium hover:bg-secondary"
-                      >
-                        {p.title.split("— ")[1]}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <Button asChild className="mt-6" variant="outline">
-                  <Link to="/programs">Compare all programmes</Link>
-                </Button>
+              <CardContent className="flex flex-1 flex-col p-4 sm:p-5">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-red">6 months · Diploma / B.Tech</p>
+                  <h3 className="mt-2 font-display text-xl font-bold">Industrial & practical training</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Branch-wise training with academic project work support and internship guidance.
+                  </p>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {industrial.map((p) => (
+                      <li key={p.slug}>
+                        <Link
+                          to="/programs/$slug"
+                          params={{ slug: p.slug }}
+                          className="inline-flex rounded-full border border-border bg-background px-3 py-1 text-xs font-medium hover:bg-secondary"
+                        >
+                          {p.title.split("— ")[1]}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="mt-auto pt-4">
+                  <Button asChild variant="outline">
+                    <Link to="/programs">Compare all programmes</Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           </div>
         </Section>
       </div>
 
-      <Section title="Social impact" description="Training that changes a household, not just a résumé.">
+      <Section title="Social impact" description="Training that changes a household, not just a résumé." className="max-w-6xl mx-auto px-4 md:px-8">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <img
             src={placementImage}
@@ -322,6 +330,30 @@ function HomePage() {
             ))}
           </div>
         </Section>
+      </div>
+
+      {/* Floating Social Icons */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+        {/* Instagram */}
+        <a 
+          href="https://instagram.com" 
+          target="_blank" 
+          rel="noreferrer"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white shadow-lg transition-transform hover:scale-110"
+        >
+          <Instagram className="h-7 w-7" />
+        </a>
+        {/* WhatsApp */}
+        <a 
+          href="https://wa.me/919999999999" 
+          target="_blank" 
+          rel="noreferrer"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] transition-transform hover:scale-110"
+        >
+          <svg viewBox="0 0 448 512" width="34" height="34" fill="#25D366">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zM223.9 414.7c-32.5 0-64.2-8.7-92.1-25.2l-6.6-3.9-68.5 18 18.3-66.8-4.3-6.8c-18.1-28.7-27.7-61.9-27.7-96.1 0-103.5 84.3-187.8 187.9-187.8 50.1 0 97.2 19.5 132.7 55 35.4 35.4 54.9 82.5 54.9 132.7 0 103.5-84.3 187.8-187.9 187.8zm102.9-140.4c-5.6-2.8-33.4-16.5-38.6-18.4-5.2-1.9-9-2.8-12.8 2.8-3.8 5.6-14.6 18.4-17.9 22.2-3.3 3.8-6.6 4.2-12.2 1.4-5.6-2.8-23.8-8.8-45.3-27.9-16.7-14.8-28-33.1-31.3-38.8-3.3-5.6-.3-8.6 2.5-11.4 2.5-2.5 5.6-6.6 8.4-9.9 2.8-3.3 3.8-5.6 5.6-9.4 1.9-3.8.9-7.1-.5-9.9-1.4-2.8-12.8-30.9-17.5-42.3-4.6-11.1-9.3-9.6-12.8-9.8-3.3-.2-7.1-.2-10.9-.2-3.8 0-9.9 1.4-15.1 7.1-5.2 5.6-19.9 19.5-19.9 47.5s20.4 55.1 23.2 58.9c2.8 3.8 40.2 61.4 97.3 86 13.6 5.9 24.2 9.4 32.5 12 13.6 4.3 26 3.7 35.8 2.2 10.9-1.6 33.4-13.7 38.1-26.9 4.7-13.2 4.7-24.5 3.3-26.9-1.4-2.5-5.2-3.9-10.8-6.7z"/>
+          </svg>
+        </a>
       </div>
     </>
   );
