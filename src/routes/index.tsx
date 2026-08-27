@@ -366,8 +366,8 @@ function AnimatedCounter({ value }: { value: string }) {
   
   const match = value.match(/^(\d+)(.*)$/);
   const isNumeric = match !== null;
-  const target = isNumeric ? parseInt(match[1] || "0", 10) : 0;
-  const suffix = isNumeric ? match[2] : "";
+  const target = match && match[1] ? parseInt(match[1], 10) : 0;
+  const suffix = match && match[2] ? match[2] : "";
 
   useEffect(() => {
     const observer = new IntersectionObserver(

@@ -52,30 +52,30 @@ function ProgramDetail() {
         description={program.summary}
       >
         <div className="flex flex-wrap gap-3">
-          <Button asChild size="lg">
+          <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 font-semibold shadow-md">
             <Link to="/register" search={{ program: program.slug }}>
               Apply for this programme
             </Link>
           </Button>
-          <Button asChild size="lg" variant="secondary">
+          <Button asChild size="lg" className="border-2 border-white/80 bg-transparent text-white hover:bg-white hover:text-primary font-semibold shadow-sm">
             <Link to="/contact">Ask a question</Link>
           </Button>
         </div>
       </PageHero>
 
       <Section>
-        <div className="grid gap-10 lg:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold">Syllabus</h2>
-            <div className="mt-6 grid gap-4">
+            <h2 className="text-xl font-bold md:text-2xl">Syllabus</h2>
+            <div className="mt-4 grid gap-3.5">
               {program.modules.map((m) => (
                 <Card key={m.title} className="shadow-card">
-                  <CardContent className="p-6">
-                    <h3 className="font-display text-base font-bold">{m.title}</h3>
-                    <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                  <CardContent className="p-4 sm:p-5">
+                    <h3 className="font-display text-sm sm:text-base font-bold">{m.title}</h3>
+                    <ul className="mt-2.5 space-y-1.5 text-xs sm:text-sm text-muted-foreground">
                       {m.points.map((p) => (
                         <li key={p} className="flex gap-2">
-                          <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
                           {p}
                         </li>
                       ))}
@@ -88,27 +88,27 @@ function ProgramDetail() {
 
           <aside>
             <Card className="shadow-card">
-              <CardContent className="p-6">
-                <h2 className="font-display text-base font-bold">At a glance</h2>
-                <dl className="mt-4 space-y-3 text-sm">
+              <CardContent className="p-4 sm:p-5">
+                <h2 className="font-display text-sm sm:text-base font-bold">At a glance</h2>
+                <dl className="mt-3 space-y-2.5 text-xs sm:text-sm">
                   <div>
-                    <dt className="text-muted-foreground">Duration</dt>
-                    <dd className="font-medium">{program.duration}</dd>
+                    <dt className="text-muted-foreground text-[11px] uppercase tracking-wider font-semibold">Duration</dt>
+                    <dd className="font-medium mt-0.5">{program.duration}</dd>
                   </div>
                   <div>
-                    <dt className="text-muted-foreground">Fee</dt>
-                    <dd className="font-medium">{program.fee}</dd>
+                    <dt className="text-muted-foreground text-[11px] uppercase tracking-wider font-semibold">Fee</dt>
+                    <dd className="font-medium mt-0.5">{program.fee}</dd>
                   </div>
                   <div>
-                    <dt className="text-muted-foreground">Eligibility</dt>
-                    <dd className="font-medium">{program.eligibility}</dd>
+                    <dt className="text-muted-foreground text-[11px] uppercase tracking-wider font-semibold">Eligibility</dt>
+                    <dd className="font-medium mt-0.5">{program.eligibility}</dd>
                   </div>
                 </dl>
-                <h3 className="mt-6 font-display text-base font-bold">Outcomes</h3>
-                <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                <h3 className="mt-4.5 pt-3 border-t border-border font-display text-sm font-bold">Outcomes</h3>
+                <ul className="mt-2 space-y-1.5 text-xs sm:text-sm text-muted-foreground">
                   {program.outcomes.map((o) => (
                     <li key={o} className="flex gap-2">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-brand-red" />
+                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-red" />
                       {o}
                     </li>
                   ))}

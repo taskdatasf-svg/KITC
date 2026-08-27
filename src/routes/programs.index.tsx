@@ -64,24 +64,24 @@ function ProgramsPage() {
 function ProgramCard({ program }: { program: (typeof PROGRAMS)[number] }) {
   return (
     <Card className="flex h-full flex-col shadow-card">
-      <CardContent className="flex flex-1 flex-col p-6">
-        <h3 className="font-display text-lg font-bold">{program.title}</h3>
-        <p className="mt-2 flex-1 text-sm text-muted-foreground">{program.summary}</p>
-        <dl className="mt-4 space-y-2 text-sm">
+      <CardContent className="flex flex-1 flex-col p-4 sm:p-5">
+        <h3 className="font-display text-base font-bold sm:text-lg">{program.title}</h3>
+        <p className="mt-1.5 flex-1 text-xs sm:text-sm text-muted-foreground">{program.summary}</p>
+        <dl className="mt-3 space-y-1.5 text-xs sm:text-sm">
           <div className="flex items-center gap-2">
-            <Clock className="h-4 w-4 text-primary" /> {program.duration}
+            <Clock className="h-3.5 w-3.5 text-primary shrink-0" /> {program.duration}
           </div>
           <div className="flex items-center gap-2">
-            <IndianRupee className="h-4 w-4 text-primary" /> {program.fee}
+            <IndianRupee className="h-3.5 w-3.5 text-primary shrink-0" /> {program.fee}
           </div>
           <div className="flex items-start gap-2">
-            <Users className="mt-0.5 h-4 w-4 shrink-0 text-primary" /> {program.eligibility}
+            <Users className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" /> {program.eligibility}
           </div>
         </dl>
-        <div className="mt-6 flex gap-2">
+        <div className="mt-4 flex gap-2">
           <Button asChild size="sm">
             <Link to="/programs/$slug" params={{ slug: program.slug }}>
-              Details <ArrowRight className="ml-1 h-4 w-4" />
+              Details <ArrowRight className="ml-1 h-3.5 w-3.5" />
             </Link>
           </Button>
           <Button asChild size="sm" variant="outline">
