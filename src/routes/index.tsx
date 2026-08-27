@@ -63,7 +63,7 @@ function HomePage() {
           {/* Left Content */}
           <div className="max-w-xl xl:pr-10">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[#0eb39e]">Welcome to KITC</p>
-            <h1 className="font-display text-4xl font-extrabold leading-tight text-[#1a1a1a] md:text-5xl lg:text-[3.5rem]">
+            <h1 className="font-display text-4xl font-semibold leading-tight text-[#1a1a1a] md:text-5xl lg:text-[3.5rem]">
               <span className="block">Be Focused.</span>
               <span className="block">Be Determined.</span>
               <span className="block">Be Empowered.</span>
@@ -366,13 +366,13 @@ function AnimatedCounter({ value }: { value: string }) {
   
   const match = value.match(/^(\d+)(.*)$/);
   const isNumeric = match !== null;
-  const target = isNumeric ? parseInt(match[1], 10) : 0;
+  const target = isNumeric ? parseInt(match[1] || "0", 10) : 0;
   const suffix = isNumeric ? match[2] : "";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setIsVisible(true);
           observer.disconnect();
         }

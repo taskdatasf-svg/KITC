@@ -23,6 +23,21 @@ export const applicationSchema = z.object({
   education: z.string().trim().max(120).optional().or(z.literal("")),
   city: z.string().trim().max(80).optional().or(z.literal("")),
   message: z.string().trim().max(1000).optional().or(z.literal("")),
+  dob: z.string().optional().or(z.literal("")),
+  school_name: z.string().trim().optional().or(z.literal("")),
+  college_name: z.string().trim().optional().or(z.literal("")),
+  specialization: z.string().trim().optional().or(z.literal("")),
+  year_of_passing: z.string().trim().optional().or(z.literal("")),
+  aadhar_no: z.string().trim().optional().or(z.literal("")),
+  religion_caste: z.string().trim().optional().or(z.literal("")),
+  reference_by: z.string().trim().optional().or(z.literal("")),
+  languages_known: z.string().trim().optional().or(z.literal("")),
+  mother_name: z.string().trim().optional().or(z.literal("")),
+  father_name: z.string().trim().optional().or(z.literal("")),
+  mother_occupation: z.string().trim().optional().or(z.literal("")),
+  father_occupation: z.string().trim().optional().or(z.literal("")),
+  emergency_contact_no: z.string().trim().optional().or(z.literal("")),
+  annual_income: z.string().trim().optional().or(z.literal("")),
 });
 export type ApplicationInput = z.infer<typeof applicationSchema>;
 
