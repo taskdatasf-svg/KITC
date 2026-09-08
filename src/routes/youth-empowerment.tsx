@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { HandHeart, Sparkles, Trophy, Users2 } from "lucide-react";
 
-import youthImage from "@/assets/youth.jpg";
+const youthImage = "/images/gallery/gallery_19.jpg";
 import { PageHero, Section } from "@/components/site/Section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";

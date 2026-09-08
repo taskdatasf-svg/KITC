@@ -264,3 +264,113 @@ export const STORIES = [
 
 export const PARTNER_NOTE =
   "We work with 10+ recruiter partners across Hyderabad in retail, manufacturing, BPO and accounting services.";
+
+export const DRIVING_PRINCIPLES = [
+  "If we train someone, they must be given a job.",
+  "They must be part of an inclusive society.",
+  "They must be changing agents in the society where they come from.",
+] as const;
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
+}
+
+export const TEAM_MEMBERS: TeamMember[] = [
+  { name: "Lakshman", role: "FOUNDER", image: "/images/team/lakshman.jpg" },
+  { name: "RAMU", role: "DIRECTOR", image: "/images/team/ram.jpg" },
+  { name: "A. CHENAIAH", role: "CEO", image: "/images/team/6.png" },
+  { name: "B. SHRUTHI", role: "ACCOUNTS MANAGER", image: "/images/team/5.png" },
+  { name: "VENKAT SAI", role: "CA", image: "/images/team/8.png" },
+  { name: "V. MAHESH", role: "BDM MANAGER", image: "/images/team/mahesh.jpg" },
+  { name: "K. MALLESH", role: "BDM MANAGER", image: "/images/team/4.png" },
+  { name: "PADMAVATI", role: "ADMINISTRATOR", image: "/images/team/padmavathi.jpg" },
+  { name: "NISHAT FATIMA", role: "CHANGE MAKER & ADMINISTRATOR", image: "/images/team/fatima.jpg" },
+  { name: "MS. VANDANA", role: "CHANGE MAKERS & ADMINISTRATOR", image: "/images/team/vandana.jpg" },
+  { name: "V. PAVAN", role: "CENTER INCHARGE", image: "/images/team/2.png" },
+  { name: "BHAVANI", role: "CHANGE MAKER", image: "/images/team/3.png" },
+];
+
+export interface StatutoryDocument {
+  name: string;
+  filename: string;
+  pdfUrl: string;
+  fallbackUrl: string;
+}
+
+export const STATUTORY_DOCUMENTS: StatutoryDocument[] = [
+  {
+    name: "MSME Certification",
+    filename: "MSME-Certificate.pdf",
+    pdfUrl: "/documents/MSME-Certificate.pdf",
+    fallbackUrl: "https://kakatheeyagroup.com/wp-content/uploads/2023/11/MSME-Certificate.pdf",
+  },
+  {
+    name: "Memorandum of Association",
+    filename: "Memorandum-of-Association.pdf",
+    pdfUrl: "/documents/Memorandum-of-Association.pdf",
+    fallbackUrl: "https://kakatheeyagroup.com/wp-content/uploads/2023/11/Memorandum-of-Association.pdf",
+  },
+  {
+    name: "Certificate of incorporation",
+    filename: "Certificate-of-incorporation.pdf",
+    pdfUrl: "/documents/Certificate-of-incorporation.pdf",
+    fallbackUrl: "https://kakatheeyagroup.com/wp-content/uploads/2023/11/Certificate-of-incorporation.pdf",
+  },
+  {
+    name: "TAN",
+    filename: "TAN.pdf",
+    pdfUrl: "/documents/TAN.pdf",
+    fallbackUrl: "https://kakatheeyagroup.com/wp-content/uploads/2023/11/TAN.pdf",
+  },
+  {
+    name: "Section 8 Licence",
+    filename: "Section-8-Licence.pdf",
+    pdfUrl: "/documents/Section-8-Licence.pdf",
+    fallbackUrl: "https://kakatheeyagroup.com/wp-content/uploads/2023/11/Section-8-Licence.pdf",
+  },
+  {
+    name: "PAN Card",
+    filename: "PAN-Card.pdf",
+    pdfUrl: "/documents/PAN-Card.pdf",
+    fallbackUrl: "https://kakatheeyagroup.com/wp-content/uploads/2023/11/PAN-Card.pdf",
+  },
+  {
+    name: "Niti Aayog Certificate",
+    filename: "Niti-Aayog-Certificate.pdf",
+    pdfUrl: "/documents/Niti-Aayog-Certificate.pdf",
+    fallbackUrl: "https://kakatheeyagroup.com/wp-content/uploads/2023/11/Niti-Aayog-Certificate.pdf",
+  },
+  {
+    name: "Article of Association",
+    filename: "Article-of-Association.pdf",
+    pdfUrl: "/documents/Article-of-Association.pdf",
+    fallbackUrl: "https://kakatheeyagroup.com/wp-content/uploads/2023/11/Article-of-Association.pdf",
+  },
+  {
+    name: "80G Certificate",
+    filename: "80G-Certificate.pdf",
+    pdfUrl: "/documents/80G-Certificate.pdf",
+    fallbackUrl: "https://kakatheeyagroup.com/wp-content/uploads/2023/11/80G-Certificate.pdf",
+  },
+  {
+    name: "ISO Certificate",
+    filename: "ISO-Certificate.pdf",
+    pdfUrl: "/documents/ISO-Certificate.pdf",
+    fallbackUrl: "https://kakatheeyagroup.com/wp-content/uploads/2023/11/ISO-Certificate.pdf",
+  },
+  {
+    name: "ESI Certificate",
+    filename: "ESI-Certificate.pdf",
+    pdfUrl: "/documents/ESI-Certificate.pdf",
+    fallbackUrl: "https://kakatheeyagroup.com/wp-content/uploads/2023/11/ESI-Certificate.pdf",
+  },
+  {
+    name: "12A Certificate",
+    filename: "12A-Certificate.pdf",
+    pdfUrl: "/documents/12A-Certificate.pdf",
+    fallbackUrl: "https://kakatheeyagroup.com/wp-content/uploads/2023/11/12A-Certificate.pdf",
+  },
+];
+

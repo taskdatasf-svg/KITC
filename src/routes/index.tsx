@@ -2,9 +2,11 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState, useRef } from "react";
 import { ArrowRight, BadgeCheck, Building2, GraduationCap, HeartHandshake, MapPin, Instagram } from "lucide-react";
 
-import heroImage from "@/assets/hero-training.jpg";
-import workshopImage from "@/assets/workshop.jpg";
-import placementImage from "@/assets/placement.jpg";
+const heroImage = "/images/gallery/gallery_18.jpg";
+const workshopImage = "/images/gallery/gallery_20.jpg";
+const placementImage = "/images/gallery/gallery_02.jpg";
+const programVocationalImage = "/images/gallery/gallery_19.jpg";
+const programIndustrialImage = "/images/gallery/gallery_21.jpg";
 import { Section } from "@/components/site/Section";
 import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
 import { Button } from "@/components/ui/button";
@@ -213,29 +215,29 @@ function HomePage() {
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             <Card className="flex h-full flex-col overflow-hidden shadow-card">
               <img
-                src={heroImage}
-                alt="Classroom session in progress"
+                src={programVocationalImage}
+                alt="Students working on computers at the KITC computer lab"
                 loading="lazy"
                 width={1600}
                 height={1008}
-                className="h-24 w-full object-cover sm:h-28"
+                className="h-52 w-full object-cover sm:h-60"
               />
-              <CardContent className="flex flex-1 flex-col p-4 sm:p-5">
+              <CardContent className="flex flex-1 flex-col p-3 sm:p-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-red">35 days · Free</p>
-                  <h3 className="mt-2 font-display text-xl font-bold">{shortTerm[0]?.title}</h3>
-                  <ul className="mt-3 grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-muted-foreground">
+                  <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-red">35 days · Free</p>
+                  <h3 className="mt-1 font-display text-base font-bold">{shortTerm[0]?.title}</h3>
+                  <ul className="mt-2 grid grid-cols-2 gap-x-3 gap-y-0.5 text-xs text-muted-foreground">
                     {["Tally", "GST", "Spoken English", "Computer basics", "Life skills", "Confidence building"].map(
                       (c) => (
-                        <li key={c} className="flex items-center gap-2">
-                          <BadgeCheck className="h-4 w-4 text-primary" /> {c}
+                        <li key={c} className="flex items-center gap-1.5">
+                          <BadgeCheck className="h-3 w-3 text-primary" /> {c}
                         </li>
                       ),
                     )}
                   </ul>
                 </div>
-                <div className="mt-auto pt-4">
-                  <Button asChild>
+                <div className="mt-auto pt-3">
+                  <Button asChild size="sm">
                     <Link to="/programs/$slug" params={{ slug: shortTerm[0]?.slug ?? "" }}>
                       View syllabus
                     </Link>
@@ -246,27 +248,24 @@ function HomePage() {
 
             <Card className="flex h-full flex-col overflow-hidden shadow-card">
               <img
-                src={workshopImage}
-                alt="Diploma students in an engineering practical lab"
+                src={programIndustrialImage}
+                alt="Trainer conducting a lesson at a KITC centre"
                 loading="lazy"
                 width={1200}
                 height={900}
-                className="h-24 w-full object-cover sm:h-28"
+                className="h-52 w-full object-cover sm:h-60"
               />
-              <CardContent className="flex flex-1 flex-col p-4 sm:p-5">
+              <CardContent className="flex flex-1 flex-col p-3 sm:p-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wide text-brand-red">6 months · Diploma / B.Tech</p>
-                  <h3 className="mt-2 font-display text-xl font-bold">Industrial & practical training</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Branch-wise training with academic project work support and internship guidance.
-                  </p>
-                  <ul className="mt-3 flex flex-wrap gap-2">
+                  <p className="text-[10px] font-semibold uppercase tracking-wide text-brand-red">6 months · Diploma / B.Tech</p>
+                  <h3 className="mt-1 font-display text-base font-bold">Industrial &amp; practical training</h3>
+                  <ul className="mt-2 flex flex-wrap gap-1.5">
                     {industrial.map((p) => (
                       <li key={p.slug}>
                         <Link
                           to="/programs/$slug"
                           params={{ slug: p.slug }}
-                          className="inline-flex rounded-full border border-border bg-background px-3 py-1 text-xs font-medium hover:bg-secondary"
+                          className="inline-flex rounded-full border border-border bg-background px-2.5 py-0.5 text-[11px] font-medium hover:bg-secondary"
                         >
                           {p.title.split("— ")[1]}
                         </Link>
@@ -274,8 +273,8 @@ function HomePage() {
                     ))}
                   </ul>
                 </div>
-                <div className="mt-auto pt-4">
-                  <Button asChild variant="outline">
+                <div className="mt-auto pt-3">
+                  <Button asChild size="sm">
                     <Link to="/programs">Compare all programmes</Link>
                   </Button>
                 </div>

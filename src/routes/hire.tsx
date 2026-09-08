@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-import placementImage from "@/assets/placement.jpg";
+const placementImage = "/images/gallery/gallery_04.jpg";
 import { PageHero, Section } from "@/components/site/Section";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";

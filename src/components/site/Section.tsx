@@ -26,11 +26,13 @@ export function PageHero({
 }
 
 export function Section({
+  eyebrow,
   title,
   description,
   children,
   className = "",
 }: {
+  eyebrow?: string;
   title?: string;
   description?: string;
   children: ReactNode;
@@ -38,6 +40,9 @@ export function Section({
 }) {
   return (
     <section className={`container-page py-8 md:py-12 ${className}`}>
+      {eyebrow ? (
+        <p className="mb-1 text-xs font-semibold uppercase tracking-wider text-primary">{eyebrow}</p>
+      ) : null}
       {title ? <h2 className="text-xl font-bold md:text-2xl">{title}</h2> : null}
       {description ? <p className="mt-2 max-w-2xl text-sm text-muted-foreground">{description}</p> : null}
       <div className={title || description ? "mt-6" : ""}>{children}</div>
